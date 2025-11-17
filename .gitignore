@@ -71,8 +71,6 @@ conf*.dir/
 /configure
 .deps/
 .dirstamp
-Makefile
-Makefile.in
 stamp-*
 *.stamp
 *.stamp-*
