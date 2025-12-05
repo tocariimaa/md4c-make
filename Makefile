@@ -10,8 +10,9 @@ src/md4c.o: $(MD4C_SRC) src/md4c.h
 src/entity.o: src/entity.c src/entity.h
 	$(CC) $(LIBCFLAGS) -c -o $@ $<
 
-src/md4c-html.o: src/md4c-html.c src/md4c-html.h src/entity.o
+src/md4c-html.a: src/md4c-html.c src/md4c-html.h src/entity.o
 	$(CC) $(LIBCFLAGS) -c -o $@ $<
+	$(AR) rcs src/md4c-html.a src/md4c-html.o src/entity.o
 
 md2html/cmdline.o: md2html/cmdline.c md2html/cmdline.h
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -20,6 +21,6 @@ md2html/md2html: md2html/md2html.c $(MD4LIBS) md2html/cmdline.o
 	$(CC) $(CFLAGS) $(VERSION_DEFS) -o $@ $^
 
 clean:
-	rm -rf src/*.o md2html/md2html md2html/*.o
+	rm -rf src/*.o src/*.a md2html/md2html md2html/*.o
 
 .PHONY: all clean
