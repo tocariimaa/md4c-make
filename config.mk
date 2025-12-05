@@ -7,8 +7,12 @@ VERSION_DEFS = -DMD_VERSION="\"$(MD_VERSION)\"" \
 			   -DMD_VERSION_MAJOR="\"$(MD_VERSION_MAJOR)\""	\
 			   -DMD_VERSION_RELEASE="\"$(MD_VERSION_RELEASE)\""
 
+PREFIX = /usr
+MANPREFIX = $(PREFIX)/share/man
+
 MD4C_SRC = src/md4c.c
 MD4LIBS = src/md4c.o src/md4c-html.o src/entity.o
 
+CC = c99
 CFLAGS = -O2 -pipe
 LIBCFLAGS = $(CFLAGS)
